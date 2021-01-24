@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/editarlibro.css" />
+<div class="editar">
+	<h1>Editar Libro</h1>
+    <form method="post">
+    	<input type="text" id="isbn" name="isbn"    value={{ isbn }}  readonly="true"/>
+        <input type="text" id="titulo"  name="titulo"    value="{{ titulo }}" readonly="true"/>
+        <input type="text" id="autores" name="autores"    value="{{ autores }}" />
+        <input type="text" id="publisher" name="publisher"    value="{{ publisher }}" />
+        <input type="number" id="anhopub" name="anhopub"   minlength="4" maxlength="4" value="{{ anhopub }}" />
+        <input type="text" id="idioma" name="idioma"   value="{{ idioma }}" />
+        <input type="number" id="paginas" name="paginas"   minlength="1" maxlength="5" value="{{ paginas }}" />
+        <textarea id="comentarios"  cols="40" rows="5" name="comentarios" placeholder="Escribe aquí el texto...">{{ comentarios }}</textarea>
+        <button type="submit" class="btn btn-primary btn-block btn-large" value="editar">Editar</button>
+        <h2>{{ Mensaje }}</h2>
+    </form>
+    <form action="/colecciones">
+    <button type="submit"  id="index" class="btn btn-primary btn-block btn-large" value="index">Volver.</button>
+    </form>
+</div>
+{% endblock %}

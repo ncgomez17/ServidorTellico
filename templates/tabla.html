@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/tabla.css" />
+<div style="margin: 20px 0 0 20px;" class="tabla">
+	<h1><span class="blue"></span>Colecciones Tellico usuario:<span class="blue"></span> <span class="yellow">{{ Usuario }}</span></h1>
+	<form action="/gestion/anhadir">
+	<button type="submit" style="margin-bottom:20px"  id="anhadir" class="btn btn-primary btn-large" value="anhadir">Añadir </button>
+	</form>
+	<form method="post">
+	<button  type="submit"  id="token" class="btn btn-primary btn-large" value="token">Generar token</button>
+	<input style="width:800px" type="text"  id="tokengenerado"  name="tokengenerado" placeholder="Token para la sincronizacion" readonly="True" value={{ token }}>
+	</form>
+	<form action="/colecciones" method="get">
+	<button type="submit" style="margin-bottom:20px"  id="search" class="btn btn-primary btn-large" value="search">Search</button>
+		<input style="width:300px" type="text"  id="busqueda"  name="busqueda" placeholder="buscar por isbn o titulo"  />
+	</form>
+
+	<table style="overflow:scroll;" class="table table-striped table-dark">
+	<thead>
+		<tr>
+			<th scope="col">isbn</th>
+			<th scope="col">titulo</th>
+			<th scope="col">autores</th>
+			<th scope="col">publisher</th>
+			<th scope="col">año_publicación</th>
+			<th scope="col">idioma</th>
+			<th scope="col">paginas</th>
+			<th scope="col">comentarios</th>
+		</tr>
+	</thead>
+	<tbody>
+{% for t in libros %}
+       <tr>
+       {% for i in t %}
+           <td>{{ i }}</td>
+       {% endfor %}
+			<td>
+				<form action="/gestion/colecciones/eliminar/" method="get">
+					<input type="hidden" name="isbn" value="{{ t[0] }}">
+					<input type="hidden" name="titulo" value="{{ t[1] }}">
+    				<button type="submit"  id="eliminar"  value="eliminar"><img src='../static/images/borrar.png' width="30px" height="30px"></button>
+    			</form>
+			</td>
+			<td>
+				<form action="/gestion/editar/" method="get">
+					<input type="hidden" name="isbn" value="{{ t[0] }}">
+					<input type="hidden" name="titulo" value="{{ t[1] }}">
+					<button type="submit"  id="editar" value="registro"><img src='../static/images/editar.png' width="30px" height="30px"></button>
+    			</form>
+			</td>
+	   </tr>
+{% endfor %}
+
+
+	</tbody>
+	</table>
+	</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/login.css" />
+<div class="login">
+	<h1>Login</h1>
+    <form method="post">
+    	<input type="text"  id="username" minlength="3" maxlength="15" name="username" placeholder="Username" required="required" />
+        <input type="password" id="password"  minlength="3" maxlength="15" name="password" placeholder="Password" required="required" />
+        <button type="submit" name='action' id="login" class="btn btn-primary btn-block btn-large" value="login">Sing in.</button>
+        <h3 style="color:red">{{ Mensaje }}</h3>
+    </form>
+
+    <form action="/register">
+    <button type="submit"  id="register" class="btn btn-primary btn-block btn-large" value="registro">Register.</button>
+    </form>
+</div>
+
+{% endblock %}

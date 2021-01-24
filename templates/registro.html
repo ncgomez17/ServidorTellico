@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/registro.css" />
+<div class="registro">
+	<h1>Registro</h1>
+    <form method="post">
+    	<input type="text" id="username" name="username"   minlength="3" maxlength="15" placeholder="Username" required="required" />
+        <input type="password" id="password" name="password"  minlength="3" maxlength="15" placeholder="Password" required="required" />
+        <input type="password" id="password2" name="password2"   minlength="3" maxlength="15" placeholder="Confirm Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large" value="registro">Regístrate.</button>
+        <h2>{{ Mensaje }}</h2>
+    </form>
+    <form action="/index">
+    <button type="submit"  id="index" class="btn btn-primary btn-block btn-large" value="index">Volver al login.</button>
+    </form>
+</div>
+{% endblock %}

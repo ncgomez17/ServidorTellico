@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/editarlibro.css" />
+<div class="editar">
+	<h1>Añadir Libro</h1>
+    <form method="post">
+    	<input type="text" id="isbn" name="isbn"   minlength="13" maxlength="13" placeholder="isbn" required="true" />
+        <input type="text" id="titulo"  name="titulo"  placeholder="titulo"  required="true" />
+        <input type="text" id="autores" name="autores" placeholder="autores" />
+        <input type="text" id="publisher" name="publisher" placeholder="publisher" />
+        <input type="number" id="anhopub" name="anhopub"   minlength="4" maxlength="4"  placeholder="anhopub" />
+        <input type="text" id="idioma" name="idioma" placeholder="idioma"  />
+        <input type="number" id="paginas" name="paginas"   minlength="1" maxlength="5" placeholder="paginas" />
+        <textarea id="comentarios"  cols="40" rows="5" name="comentarios" placeholder="Escribe aquí el comentario..."></textarea>
+        <button type="submit" class="btn btn-primary btn-block btn-large" value="anhadir">Añadir</button>
+        <h2>{{ Mensaje }}</h2>
+    </form>
+    <form action="/colecciones">
+    <button type="submit"  id="index" class="btn btn-primary btn-block btn-large" value="index">Volver.</button>
+    </form>
+</div>
+{% endblock %}
