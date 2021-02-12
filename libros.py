@@ -1,7 +1,7 @@
 class Libro:
-    '''Define un libro al que se le pasaran unos parametros
+    """Define un libro al que se le pasaran unos parametros
     que consistiran en los distintos datos del libro
-    '''
+    """
 
     def __init__(self):
         self.__titulo = ""

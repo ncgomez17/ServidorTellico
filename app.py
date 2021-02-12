@@ -44,7 +44,7 @@ def registro():
                 password = request.form['password']
                 password2 = request.form['password2']
                 exists = DB.comprobar_login(name)
-                if exists is False:
+                if exists is False and password ==password2:
                     sql = "INSERT INTO usuarios (nombre,password) VALUES (%s, %s)"
                     h = hashlib.sha256()
                     h.update(password.encode(encoding='UTF-8', errors='strict'))
