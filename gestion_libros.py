@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 import DB
 from libros import Libro
 from flask import Blueprint
-import app
 
 gestion_libros = Blueprint('ServidorWeb', __name__, template_folder='templates', static_folder='static')
 

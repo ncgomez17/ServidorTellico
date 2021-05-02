@@ -1,14 +1,14 @@
 import MySQLdb
 
-DB_HOST = "localhost"
-DB_HOST = "root"
-DB_HOST = "password"
-DB_HOST = "ServidorWeb"
+DB_puerto = "localhost"
+DB_user = "root"
+DB_pass = "password"
+DB_bd = "ServidorWeb"
 
 
 ##Funcion para realizar la conexión con la base de datos
 def connect():
-    con = MySQLdb.connect("localhost", "root", "password", "ServidorWeb")
+    con = MySQLdb.connect("localhost", "tellico-synchronized", "proyecto-nicolas", "ServidorWeb")
     return con
 
 
