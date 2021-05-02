@@ -13,15 +13,15 @@
 
 
 -- Volcando estructura de base de datos para ServidorWeb
-CREATE DATABASE IF NOT EXISTS `ServidorWeb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `ServidorWeb`;
 USE `ServidorWeb`;
 
 -- Volcando estructura para tabla ServidorWeb.libros
 CREATE TABLE IF NOT EXISTS `libros` (
   `id` int NOT NULL AUTO_INCREMENT,
   `isbn` varchar(50) DEFAULT NULL,
-  `user` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `titulo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `user` varchar(50) CHARACTER SET utf8mb4  DEFAULT NULL,
+  `titulo` text CHARACTER SET utf8mb4,
   `autores` text,
   `publisher` varchar(50) DEFAULT NULL,
   `anhopub` varchar(16) DEFAULT NULL,
@@ -32,18 +32,18 @@ CREATE TABLE IF NOT EXISTS `libros` (
   KEY `isbn` (`isbn`),
   KEY `FK_libros_usuarios` (`user`),
   CONSTRAINT `FK_libros_usuarios` FOREIGN KEY (`user`) REFERENCES `usuarios` (`nombre`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=477 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=477 DEFAULT CHARSET=utf8mb4;
 
 -- La exportación de datos fue deseleccionada.
 
 -- Volcando estructura para tabla ServidorWeb.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `nombre` varchar(50) CHARACTER SET utf8mb4  DEFAULT NULL,
+  `password` text CHARACTER SET utf8mb4 ,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4;
 
 -- La exportación de datos fue deseleccionada.
 

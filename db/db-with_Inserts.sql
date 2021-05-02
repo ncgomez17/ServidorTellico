@@ -5,6 +5,7 @@
 -- HeidiSQL Versión:             11.0.0.5919
 -- --------------------------------------------------------
 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
@@ -13,15 +14,15 @@
 
 
 -- Volcando estructura de base de datos para ServidorWeb
-CREATE DATABASE IF NOT EXISTS `ServidorWeb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `ServidorWeb`;
 USE `ServidorWeb`;
 
 -- Volcando estructura para tabla ServidorWeb.libros
 CREATE TABLE IF NOT EXISTS `libros` (
   `id` int NOT NULL AUTO_INCREMENT,
   `isbn` varchar(50) DEFAULT NULL,
-  `user` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `titulo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `user` varchar(50) CHARACTER SET utf8mb4  DEFAULT NULL,
+  `titulo` text CHARACTER SET utf8mb4,
   `autores` text,
   `publisher` varchar(50) DEFAULT NULL,
   `anhopub` varchar(16) DEFAULT NULL,
@@ -32,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `libros` (
   KEY `isbn` (`isbn`),
   KEY `FK_libros_usuarios` (`user`),
   CONSTRAINT `FK_libros_usuarios` FOREIGN KEY (`user`) REFERENCES `usuarios` (`nombre`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=482 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=477 DEFAULT CHARSET=utf8mb4;
 
 -- Volcando datos para la tabla ServidorWeb.libros: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `libros` DISABLE KEYS */;
@@ -44,14 +45,16 @@ INSERT INTO `libros` (`id`, `isbn`, `user`, `titulo`, `autores`, `publisher`, `a
 	(481, '', 'admin', 'Primera y segunda parte de el Leon de Espana', 'Pedro de la Vecilla Castellanos', 'Juan Fernandez', '1586', 'es', '812', '');
 /*!40000 ALTER TABLE `libros` ENABLE KEYS */;
 
+-- La exportación de datos fue deseleccionada.
+
 -- Volcando estructura para tabla ServidorWeb.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `nombre` varchar(50) CHARACTER SET utf8mb4  DEFAULT NULL,
+  `password` text CHARACTER SET utf8mb4 ,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8mb4;
 
 -- Volcando datos para la tabla ServidorWeb.usuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
@@ -60,9 +63,10 @@ INSERT INTO `usuarios` (`id`, `nombre`, `password`) VALUES
 	(93, 'normal', '7bf24d6ca2242430343ab7e3efb89559a47784eea1123be989c1b2fb2ef66e83');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
+-- La exportación de datos fue deseleccionada.
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-
 CREATE USER IF NOT EXISTS 'tellico-synchronized'@'localhost' IDENTIFIED WITH mysql_native_password BY 'proyecto-nicolas';
 GRANT ALL ON `ServidorWeb`.* TO 'tellico-synchronized'@'localhost';

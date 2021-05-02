@@ -8,7 +8,7 @@ DB_bd = "ServidorWeb"
 
 ##Funcion para realizar la conexión con la base de datos
 def connect():
-    con = MySQLdb.connect("localhost", "tellico-synchronized", "proyecto-nicolas", "ServidorWeb")
+    con = MySQLdb.connect("127.0.0.1", "tellico-synchronized", "proyecto-nicolas", "ServidorWeb")
     return con
 
 
