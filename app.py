@@ -1,4 +1,3 @@
-
 import jwt
 from flask import Flask, render_template, request, redirect, url_for, session, json
 import hashlib
@@ -8,8 +7,7 @@ from gestion_libros import gestion_libros
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
 app.register_blueprint(gestion_libros, url_prefix='/gestion')
-if __name__ == "__main__":
-    app.run(debug=True)
+
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -140,3 +138,5 @@ def recibir_json():
     except Exception as e:
         print(e)
         return "El token no es válido o tiene algun dato incorrecto"
+if __name__ == "__main__":
+    app.run(debug=True)
